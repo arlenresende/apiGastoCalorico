@@ -61,8 +61,8 @@ module.exports = class UserController {
       host: "smtp.hostinger.com",
       port: 465,
       auth: {
-        user: "contato@calculadora.gustavo2em1.com.br",
-        pass: "Gu10192410*"
+        user: process.env.USERHOST,
+        pass: process.env.USERPASS
       }
     });
 
