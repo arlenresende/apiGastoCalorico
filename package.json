@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js https://6384b878603c3c63232c0016--fastidious-bublanina-269c4f.netlify.app/ "
+    "start": "nodemon ./index.js localhost:8000 "
   },
   "name": "backend",
   "version": "1.0.0",
