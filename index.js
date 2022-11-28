@@ -9,7 +9,7 @@ const app = express()
 app.use(express.json())
 
 // Solve Cors
-app.use(cors({ credentials: true, origin: 'https://apigastocalorico.netlify.app/' }))
+app.use(cors({ credentials: true, origin: 'http://localhost:8000' }))
 
 // Public folder for images
 app.use(express.static('public'))
