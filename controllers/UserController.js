@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer')
 
 module.exports = class UserController {
   static async cadastro(req, res) {
-    const { nome, email, genero, idade, altura,indicieFA } = req.body
+    const { nome, email, genero, idade, altura,nivel } = req.body
 
 
     // validations
@@ -47,7 +47,7 @@ module.exports = class UserController {
       genero:genero,
       idade: idade,
       altura: altura,
-      nivel: indicieFA
+      nivel: nivel
     })
 
     try {
@@ -91,14 +91,31 @@ module.exports = class UserController {
               <strong> Altura : </strong> ${altura}
           </li>
           <li>
-              <strong> Fator de atividade : </strong> ${ indicieFA }
+              <strong> Fator de atividade : </strong> ${ setivelFA(nivel) }
           </li>
       </ul>`
     };
 
-    transport.sendMail(message)
+    transport.sendMail(message);
+  }
 
-
+  static async setivelFA(nivel){
+    let fa;
+    switch (nivel) {
+      case 1:
+        fa = 1.2;
+        break;
+      case 2:
+        fa = 1.3;
+        break;
+      case 3:
+        fa = 1.5;
+        break;
+      case 4:
+        fa = 1.7;
+        break;
+    }
+    return fa;
   }
 
   static async getAll(req, res) {
