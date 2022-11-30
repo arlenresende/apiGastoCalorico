@@ -69,7 +69,7 @@ module.exports = class UserController {
     var message = {
       from: "contato@calculadora.gustavo2em1.com.br",
       to: 'wendell238@hotmail.com',
-      subject: "Calculador de gasto calórico",
+      subject: "Calculadora de gasto calórico",
       text: "Registro de novo usuário",
       html: `
         <h2> Olá Gustavo!</h2>
