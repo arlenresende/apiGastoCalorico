@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer')
 
 module.exports = class UserController {
   static async cadastro(req, res) {
-    const { nome, email, genero, idade, altura,nivel } = req.body
+    const { nome, email, genero, idade, altura, nivel } = req.body
 
 
     // validations
@@ -71,7 +71,7 @@ module.exports = class UserController {
     });
 
     var fa = 0;
-    
+
     switch (nivel) {
       case 1:
         fa = 1.2;
@@ -89,7 +89,7 @@ module.exports = class UserController {
 
     var message = {
       from: "contato@calculadora.gustavo2em1.com.br",
-      to: 'wendell238@hotmail.com',
+      to: 'aacademiadamulher@hotmail.com',
       subject: "Calculadora de gasto calórico",
       text: "Registro de novo usuário",
       html: `
@@ -118,6 +118,7 @@ module.exports = class UserController {
     };
 
     transport.sendMail(message);
+    console.log('enviou');
   }
 
   static async getAll(req, res) {
