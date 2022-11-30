@@ -70,6 +70,23 @@ module.exports = class UserController {
       }
     });
 
+    var fa = 0;
+    
+    switch (nivel) {
+      case 1:
+        fa = 1.2;
+        break;
+      case 2:
+        fa = 1.3;
+        break;
+      case 3:
+        fa = 1.5;
+        break;
+      case 4:
+        fa = 1.7;
+        break;
+    }
+
     var message = {
       from: "contato@calculadora.gustavo2em1.com.br",
       to: 'wendell238@hotmail.com',
@@ -95,31 +112,12 @@ module.exports = class UserController {
               <strong> Altura : </strong> ${altura}
           </li>
           <li>
-              <strong> Fator de atividade : </strong> ${ setivelFA(nivel) }
+              <strong> Fator de atividade : </strong> ${ fa }
           </li>
       </ul>`
     };
 
     transport.sendMail(message);
-  }
-
-  static async setivelFA(nivel){
-    let fa;
-    switch (nivel) {
-      case 1:
-        fa = 1.2;
-        break;
-      case 2:
-        fa = 1.3;
-        break;
-      case 3:
-        fa = 1.5;
-        break;
-      case 4:
-        fa = 1.7;
-        break;
-    }
-    return fa;
   }
 
   static async getAll(req, res) {
