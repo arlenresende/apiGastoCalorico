@@ -29,6 +29,10 @@ module.exports = class UserController {
       res.status(422).json({ message: 'A altura é obrigatória' })
       return
     }
+    if (!nivel) {
+      res.status(422).json({ message: 'O Nivel é obrigatória' })
+      return
+    }
 
     // Check if user exists
 
