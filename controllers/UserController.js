@@ -73,7 +73,7 @@ module.exports = class UserController {
       text: "Registro de novo usuário",
       html: `
         <h2> Olá Gustavo!</h2>
-        <p> ${nome} acabou de se cadastrar na calculadora online. <br> Veja os dados abaixo: </p>
+        <p> <strong> ${nome} </strong> acabou de se cadastrar na calculadora online. <br> Veja os dados abaixo: </p>
       <ul>
           <li>
               <strong> Nome:</strong> ${nome}
