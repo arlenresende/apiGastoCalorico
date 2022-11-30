@@ -11,7 +11,12 @@ const app = express()
 app.use(express.json())
 
 // Solve Cors
+
+
 app.use(cors({ credentials: true, origin: 'http://localhost:8000' }))
+app.use(cors({ credentials: true, origin: 'http://localhost:4200' }))
+app.use(cors({ credentials: true, origin: 'https://calculadora.gustavo2em1.com.br/' }))
+
 
 // Public folder for images
 app.use(express.static('public'))
