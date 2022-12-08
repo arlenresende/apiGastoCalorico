@@ -25,8 +25,16 @@ const User = mongoose.model(
         type: Number,
         required: true,
       },
+      peso: {
+        type: Number,
+        required: true,
+      },
       nivel: {
         type: Number,
+        required: true,
+      },
+      valorCalculado: {
+        type: String,
         required: true,
       },
     },
