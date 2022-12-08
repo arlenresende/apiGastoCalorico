@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer')
 
 module.exports = class UserController {
   static async cadastro(req, res) {
-    const { nome, email, genero, idade, altura, nivel } = req.body
+    const { nome, email, genero, idade, altura, peso,  nivel, valorCalculado } = req.body
 
 
     // validations
@@ -29,13 +29,21 @@ module.exports = class UserController {
       res.status(422).json({ message: 'A altura é obrigatória' })
       return
     }
+    if (!peso) {
+      res.status(422).json({ message: 'A peso é obrigatória' })
+      return
+    }
     if (!nivel) {
       res.status(422).json({ message: 'O Nivel é obrigatória' })
       return
     }
 
-    // Check if user exists
+    if (!valorCalculado) {
+      res.status(422).json({ message: 'O Valor calculado é obrigatória' })
+      return
+    }
 
+    // Check if user exists
     const userExists = await User.findOne({ email: email })
 
     if (userExists) {
@@ -51,7 +59,9 @@ module.exports = class UserController {
       genero:genero,
       idade: idade,
       altura: altura,
-      nivel: nivel
+      peso: peso,
+      nivel: nivel,
+      valorCalculado: valorCalculado
     })
 
     try {
@@ -112,13 +122,18 @@ module.exports = class UserController {
               <strong> Altura : </strong> ${altura}
           </li>
           <li>
+              <strong> Peso : </strong> ${peso}
+          </li>
+          <li>
               <strong> Fator de atividade : </strong> ${ fa }
+          </li>
+          <li>
+              <strong> Valor calculado : </strong> ${ valorCalculado }
           </li>
       </ul>`
     };
 
-    transport.sendMail(message);
-    console.log('enviou');
+    transport.sendMail(message);    
   }
 
   static async getAll(req, res) {
