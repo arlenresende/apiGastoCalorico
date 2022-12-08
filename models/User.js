@@ -27,7 +27,7 @@ const User = mongoose.model(
       },
       peso: {
         type: Number,
-        required: true,
+        required: false,
       },
       nivel: {
         type: Number,
@@ -35,7 +35,7 @@ const User = mongoose.model(
       },
       valorCalculado: {
         type: String,
-        required: true,
+        required: false,
       },
     },
     { timestamps: true }
